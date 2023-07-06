@@ -47,22 +47,10 @@ const BlogPostForm = () => {
                     />
                     <div className="check">
                       <img src={camIcon} />
-                      <button>Kies bestand</button>
+                      <button className="sb-upload-button">Kies bestand</button>
                     </div>
                   </div>
-                  {/* <div class="input-group-append">
-                    <span class="input-group-text" id="">
-                      Upload
-                    </span>
-                  </div> */}
                 </div>
-                {/* <input
-                  type="email"
-                  class="form-control"
-                  id="exampleInputEmail1"
-                  placeholder="Geen title"
-                /> */}
-                {/* upload */}
               </div>
               <div class="form-group">
                 <label for="blogTextarea">Bericht</label>
@@ -73,9 +61,11 @@ const BlogPostForm = () => {
                   placeholder="Geen title"></textarea>
               </div>
             </div>
-            <button type="submit" class="btn btn-primary">
-              Submit
-            </button>
+            <div class="sb-container">
+              <button type="submit" class="btn btn-primary" id="sb-button">
+                Bericht aanmaken
+              </button>
+            </div>
           </form>
         </div>
       </div>

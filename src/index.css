@@ -9,7 +9,7 @@
   }
   .nav-link a:hover {
     text-decoration: underline;
-    text-decoration-color: #ec0000;
+    text-decoration-color: #f17232;
     text-underline-offset: 10px;
   }
 }

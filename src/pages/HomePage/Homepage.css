@@ -7,3 +7,6 @@
   align-items: center;
   padding: 1rem;
 }
+.blog-post .container .left {
+  margin: 0 20px;
+}
