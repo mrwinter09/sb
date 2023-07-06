@@ -1,0 +1,38 @@
+/** @format */
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon {
+  font-size: 2rem;
+  color: #6900ff;
+}
+
+.purple {
+  color: #6900ff;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.nav-link {
+  font-size: 1.5rem;
+  color: #6900ff;
+  text-decoration: none;
+  margin: 0 1rem;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.background {
+  background-image: url('../../assets/background.png');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: bottom;
+  height: 200px;
+}
