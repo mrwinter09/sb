@@ -5,13 +5,14 @@ label {
 
 .cms {
   background-color: aliceblue;
-  border-radius: 8px;
+  border-radius: 4px;
   padding: 20px;
 }
 
-.cms .blog-container label,
-input {
-  margin-bottom: 10px;
+.cms .blog-container input,
+textarea,
+select {
+  margin-bottom: 15px;
 }
 
 .cms .blog-container input {
@@ -22,6 +23,12 @@ input {
   background-color: rgb(208, 199, 199);
 }
 .cms .blog-container input::placeholder {
+  color: rgb(137, 137, 137);
+  font-style: italic;
+  font-size: small;
+}
+
+.cms .blog-container textarea::placeholder {
   color: rgb(137, 137, 137);
   font-style: italic;
   font-size: small;
@@ -56,4 +63,48 @@ select:required:invalid {
 
 option[value=''][disabled] {
   display: none;
+}
+
+.cms .blog-container .upload {
+  display: flex;
+}
+
+.check {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 190px;
+  height: 48px;
+  background-color: rgb(208, 199, 199);
+}
+
+.check > button {
+  background-color: rgb(137, 137, 137);
+  border: 0px solid #ccc;
+  border-radius: 20px;
+  height: 25px;
+  width: 25px;
+  font-size: small;
+  color: rgb(255, 255, 255);
+}
+
+.custom-file > input[type='file'] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+
+  &::-webkit-file-upload-button {
+    display: none;
+  }
+  &::file-selector-button {
+    display: none;
+  }
+
+  &:hover {
+    label {
+      background-color: #dde0e3;
+      cursor: pointer;
+    }
+  }
 }

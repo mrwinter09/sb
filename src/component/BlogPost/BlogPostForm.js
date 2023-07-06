@@ -2,6 +2,7 @@
 
 import React from 'react'
 import './BlogPostForm.css'
+import camIcon from '../../assets/camera_icon.svg'
 
 const BlogPostForm = () => {
   return (
@@ -30,51 +31,52 @@ const BlogPostForm = () => {
                   <option value="2">Smartphone</option>
                   <option value="3">Laptop</option>
                 </select>
-                {/* <input
-                  type="email"
-                  class="form-control"
-                  id="blogCategorieSelect1"
-                  placeholder="Geen categorie"
-                /> */}
               </div>
               <div class="form-group">
                 <label for="exampleInputEmail1">Header afbeelding</label>
-                <input
+                {/* upload */}
+                <div class="input-group mb-3">
+                  <div class="custom-file">
+                    <input
+                      type="file"
+                      class="custom-file-input"
+                      id="exampleInputEmail1"
+                      aria-describedby="uploadImgBtn"
+                      accept=".jpg,.jpeg, .png,"
+                      title="foo"
+                    />
+                    <div className="check">
+                      <img src={camIcon} />
+                      <button>Kies bestand</button>
+                    </div>
+                  </div>
+                  {/* <div class="input-group-append">
+                    <span class="input-group-text" id="">
+                      Upload
+                    </span>
+                  </div> */}
+                </div>
+                {/* <input
                   type="email"
                   class="form-control"
                   id="exampleInputEmail1"
                   placeholder="Geen title"
-                />
+                /> */}
+                {/* upload */}
               </div>
               <div class="form-group">
                 <label for="blogTextarea">Bericht</label>
-                <input
-                  type="email"
+                <textarea
+                  rows="9"
                   class="form-control"
                   id="blogTextarea"
-                  placeholder="Geen title"
-                />
+                  placeholder="Geen title"></textarea>
               </div>
             </div>
             <button type="submit" class="btn btn-primary">
               Submit
             </button>
           </form>
-          {/* <form
-          action="https://getform.io/f/f9c1847d-cbc0-4a5b-8810-e3eadf58cbb2"
-          method="POST">
-          <h2>Plaats een blog bericht</h2>
-
-          <div className="submit-container">
-            <div className="input-container">
-              <input
-                type="number"
-                name="amount"
-                placeholder="Amount To Stake (in ETH)"
-              />
-            </div>
-          </div>
-        </form> */}
         </div>
       </div>
     </>
