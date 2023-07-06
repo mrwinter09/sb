@@ -4,6 +4,7 @@ import React from 'react'
 import { FaCoins } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import './NavBar.css'
+import logo from '../../assets/logo.svg'
 
 const NavBar = () => {
   return (
@@ -11,10 +12,7 @@ const NavBar = () => {
       <div className="background">
         <div className="nav-container">
           <div className="navbar">
-            <FaCoins className="icon" />
-            <h1>
-              Social <span className="purple">Brothers</span>
-            </h1>
+            <img src={logo} alt="" className="icon"></img>
           </div>
           <div className="nav-link">
             <Link to="/">Home</Link>

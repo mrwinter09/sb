@@ -16,16 +16,20 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  background-color: #d3d3d3;
+  background-color: #d3d3d3 !important;
 }
 
 a {
-  color: #3f5cff;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #ffffff;
   text-decoration: none;
 }
 
 h1 {
-  text-align: center;
   margin: 1rem;
 }
 
