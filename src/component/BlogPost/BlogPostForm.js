@@ -7,44 +7,60 @@ const BlogPostForm = () => {
   return (
     <>
       <div className="cms">
-        <form>
-          <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input
-              type="email"
-              class="form-control"
-              id="exampleInputEmail1"
-              aria-describedby="emailHelp"
-              placeholder="Enter email"
-            />
-            <small id="emailHelp" class="form-text text-muted">
-              We'll never share your email with anyone else.
-            </small>
-          </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input
-              type="password"
-              class="form-control"
-              id="exampleInputPassword1"
-              placeholder="Password"
-            />
-          </div>
-          <div class="form-group form-check">
-            <input
-              type="checkbox"
-              class="form-check-input"
-              id="exampleCheck1"
-            />
-            <label class="form-check-label" for="exampleCheck1">
-              Check me out
-            </label>
-          </div>
-          <button type="submit" class="btn btn-primary">
-            Submit
-          </button>
-        </form>
-        {/* <form
+        <div className="blog-container">
+          <form>
+            <div class="form-group">
+              <h2>Plaats een blog bericht</h2>
+              <div class="form-group">
+                <label for="inputBlogBerichtnaam">Berichtnaam</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="inputBlogBerichtnaam"
+                  placeholder="Geen title"
+                />
+              </div>
+              <div class="form-group">
+                <label for="blogCategorieSelect1">Categorie</label>
+                <select required class="form-control" id="blogCategorieSelect1">
+                  <option value="" disabled selected>
+                    Geen categorie
+                  </option>
+                  <option value="1">Gadgets</option>
+                  <option value="2">Smartphone</option>
+                  <option value="3">Laptop</option>
+                </select>
+                {/* <input
+                  type="email"
+                  class="form-control"
+                  id="blogCategorieSelect1"
+                  placeholder="Geen categorie"
+                /> */}
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Header afbeelding</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="exampleInputEmail1"
+                  placeholder="Geen title"
+                />
+              </div>
+              <div class="form-group">
+                <label for="blogTextarea">Bericht</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="blogTextarea"
+                  placeholder="Geen title"
+                />
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary">
+              Submit
+            </button>
+          </form>
+          {/* <form
           action="https://getform.io/f/f9c1847d-cbc0-4a5b-8810-e3eadf58cbb2"
           method="POST">
           <h2>Plaats een blog bericht</h2>
@@ -59,6 +75,7 @@ const BlogPostForm = () => {
             </div>
           </div>
         </form> */}
+        </div>
       </div>
     </>
   )

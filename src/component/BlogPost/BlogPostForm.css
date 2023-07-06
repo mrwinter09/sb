@@ -1,5 +1,59 @@
 /** @format */
+label {
+  font-size: small;
+}
 
 .cms {
   background-color: aliceblue;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.cms .blog-container label,
+input {
+  margin-bottom: 10px;
+}
+
+.cms .blog-container input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 2px;
+  border: 0px solid #ccc;
+  background-color: rgb(208, 199, 199);
+}
+.cms .blog-container input::placeholder {
+  color: rgb(137, 137, 137);
+  font-style: italic;
+  font-size: small;
+}
+
+.form-control {
+  background-color: rgb(208, 199, 199);
+  border-radius: 2px;
+}
+
+.form-control:focus {
+  color: var(--bs-body-color);
+  background-color: rgb(208, 199, 199);
+  border-color: #ffffff;
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem rgba(255, 216, 216, 0.25);
+}
+
+select {
+  height: 44px;
+  padding: 10px;
+}
+
+select:required:invalid {
+  color: gray;
+  font-style: italic;
+  font-size: small;
+  border-radius: 2px;
+  border: 0px solid #ccc;
+  background-color: rgb(208, 199, 199);
+}
+
+option[value=''][disabled] {
+  display: none;
 }
