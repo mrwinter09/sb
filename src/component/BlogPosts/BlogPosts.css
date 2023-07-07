@@ -95,3 +95,36 @@ button#sb-blog-page-button {
   font-size: small;
   color: rgb(255, 255, 255);
 }
+
+.pagination {
+  list-style: none;
+  font-size: 1.2rem;
+  gap: 10px;
+}
+
+.pagination .page-num {
+  padding: 8px 3px;
+  cursor: pointer;
+  border-radius: 3px;
+  font-weight: 400;
+  text-decoration: none;
+  color: #767676 !important;
+}
+/* .pagination .page-num:hover {
+  border-radius: 30px;
+  background-color: #f17232;
+} */
+
+.pagination .active {
+  background-color: #bebebe;
+  border-radius: 30px;
+  font-weight: bold;
+}
+.active .page-num {
+  font-weight: bold;
+  color: rgb(12, 12, 12) !important;
+}
+
+li.disabled {
+  display: none;
+}
