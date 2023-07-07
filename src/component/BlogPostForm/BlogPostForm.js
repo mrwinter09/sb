@@ -6,7 +6,10 @@ import './BlogPostForm.css'
 import camIcon from '../../assets/camera_icon.svg'
 
 const BlogPostForm = () => {
-  // const urlPost = 'https://frontend-case-api.sbdev.nl/api/posts'
+  const urlPost = 'https://frontend-case-api.sbdev.nl/api/posts'
+  const url =
+    'https://frontend-case-api.sbdev.nl/api/posts?page=1&perPage=100&sortBy=title&sortDirection=desc&searchPhrase=test ber&categoryId=1&token=pj11daaQRz7zUIH56B9Z'
+
   const [data, setData] = useState({
     title: '',
     content: '',
@@ -23,60 +26,51 @@ const BlogPostForm = () => {
   }
 
   async function postBlog() {
-    try {
-      // eslint-disable-next-line
-      const response = await axios.post(
-        'https://frontend-case-api.sbdev.nl/api/posts',
-        {
-          headers: {
-            'Content-Type': 'application/json',
-            token: 'pj11daaQRz7zUIH56B9Z',
-          },
-          title: 'data.title',
-          content: 'data.content',
-          category_id: 'data.category_id',
-          image: 'data.image',
-        }
-      )
-      console.log(response)
-    } catch (error) {
-      console.error(error)
-    }
+    axios
+      .post(urlPost, {
+        headers: {
+          'Content-Type': 'application/json',
+          token: 'pj11daaQRz7zUIH56B9Z',
+        },
+        title: '',
+        content: '',
+        category_id: '',
+        image: '',
+      })
+      .then((response) => {
+        console.log(response)
+      })
+      .catch((error) => {
+        console.log(error)
+      })
   }
 
-  function handle(e) {
-    const newData = { ...data }
-    newData[e.target.id] = e.target.value
-    setData(newData)
-    console.log(newData)
-  }
+  // function handle(e) {
+  //   const newData = { ...data }
+  //   newData[e.target.id] = e.target.value
+  //   setData(newData)
+  //   console.log(newData)
+  // }
 
   return (
     <>
       <div className="cms">
         <div className="blog-container">
           <form onSubmit={handleSubmit}>
-            <div class="form-group">
+            <div className="form-group">
               <h2>Plaats een blog bericht</h2>
-              <div class="form-group">
+              <div className="form-group">
                 <label for="inputBlogTitle">Berichtnaam</label>
                 <input
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   id="title"
                   placeholder="Geen title"
-                  onChange={(e) => handle(e)}
-                  value={data.title}
                 />
               </div>
-              <div class="form-group">
+              <div className="form-group">
                 <label for="blogCategorieSelect1">Categorie</label>
-                <select
-                  onChange={(e) => handle(e)}
-                  value={data.category_id}
-                  required
-                  class="form-control"
-                  id="category_id">
+                <select required className="form-control" id="category_id">
                   <option value="" disabled selected>
                     Geen categorie
                   </option>
@@ -86,18 +80,15 @@ const BlogPostForm = () => {
                   <option value="4">Lokaal</option>
                 </select>
               </div>
-              <div class="form-group">
+              <div className="form-group">
                 <label for="exampleInputEmail1">Header afbeelding</label>
                 {/* upload */}
-                <div class="input-group mb-3">
-                  <div class="custom-file">
+                <div className="input-group mb-3">
+                  <div className="custom-file">
                     <input
                       type="file"
-                      class="custom-file-input"
+                      className="custom-file-input"
                       id="image"
-                      readonly
-                      onChange={(e) => handle(e)}
-                      value={data.image}
                     />
                     <div className="check">
                       <img src={camIcon} alt="" />
@@ -106,19 +97,21 @@ const BlogPostForm = () => {
                   </div>
                 </div>
               </div>
-              <div class="form-group">
+              <div className="form-group">
                 <label for="blogTextarea">Bericht</label>
                 <textarea
                   rows="9"
-                  class="form-control"
+                  className="form-control"
                   id="content"
-                  placeholder="Geen title"
-                  onChange={(e) => handle(e)}
-                  value={data.content}></textarea>
+                  placeholder="Geen title"></textarea>
               </div>
             </div>
-            <div class="sb-container">
-              <button type="submit" class="btn btn-primary" id="sb-button">
+            <div className="sb-container">
+              <button
+                onClick={postBlog}
+                type="submit"
+                className="btn btn-primary"
+                id="sb-button">
                 Bericht aanmaken
               </button>
             </div>

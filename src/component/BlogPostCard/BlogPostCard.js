@@ -48,9 +48,9 @@ const BlogPostCard = () => {
               )
             })}
           </div>
-          <div class="sb-blog-container">
+          <div className="sb-blog-container">
             <Link to="/blogpage">
-              <button type="submit" class="btn btn-primary" id="sb-button">
+              <button type="submit" className="btn btn-primary" id="sb-button">
                 Laad meer
               </button>
             </Link>
