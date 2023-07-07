@@ -6,16 +6,19 @@ import './BlogPostForm.css'
 import camIcon from '../../assets/camera_icon.svg'
 
 const BlogPostForm = () => {
-  const urlPost = 'https://frontend-case-api.sbdev.nl/api/posts'
-  // const url =
-  //   'https://frontend-case-api.sbdev.nl/api/posts?page=1&perPage=100&sortBy=title&sortDirection=desc&searchPhrase=test ber&categoryId=1&token=pj11daaQRz7zUIH56B9Z'
+  const url = 'https://frontend-case-api.sbdev.nl/api/posts'
 
-  // const [data, setData] = useState({
-  //   title: '',
-  //   content: '',
-  //   category_id: '',
-  //   image: '',
-  // })
+  const postData = {
+    title: 'Example Title',
+    content: 'Example Content',
+    category_id: 1,
+    image: 'images/g7TQoPqaPIXtN715RNsJ3NWYf38Dt1UyvSaZEvUC.jpg',
+  }
+
+  const headers = {
+    token: 'pj11daaQRz7zUIH56B9Z',
+    'Content-Type': 'application/json',
+  }
 
   function handleSubmit(e) {
     e.preventDefault()
@@ -27,30 +30,14 @@ const BlogPostForm = () => {
 
   async function postBlog() {
     axios
-      .post(urlPost, {
-        headers: {
-          'Content-Type': 'application/json',
-          token: 'pj11daaQRz7zUIH56B9Z',
-        },
-        title: '',
-        content: '',
-        category_id: '',
-        image: '',
-      })
+      .post(url, postData, { headers })
       .then((response) => {
-        console.log(response)
+        console.log('Response:', response.data)
       })
       .catch((error) => {
-        console.log(error)
+        console.error('Error:', error.message)
       })
   }
-
-  // function handle(e) {
-  //   const newData = { ...data }
-  //   newData[e.target.id] = e.target.value
-  //   setData(newData)
-  //   console.log(newData)
-  // }
 
   return (
     <>
