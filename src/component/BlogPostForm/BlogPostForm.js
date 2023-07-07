@@ -1,21 +1,21 @@
 /** @format */
 
-import React, { useState } from 'react'
+// import React, { useState } from 'react'
 import axios from 'axios'
 import './BlogPostForm.css'
 import camIcon from '../../assets/camera_icon.svg'
 
 const BlogPostForm = () => {
   const urlPost = 'https://frontend-case-api.sbdev.nl/api/posts'
-  const url =
-    'https://frontend-case-api.sbdev.nl/api/posts?page=1&perPage=100&sortBy=title&sortDirection=desc&searchPhrase=test ber&categoryId=1&token=pj11daaQRz7zUIH56B9Z'
+  // const url =
+  //   'https://frontend-case-api.sbdev.nl/api/posts?page=1&perPage=100&sortBy=title&sortDirection=desc&searchPhrase=test ber&categoryId=1&token=pj11daaQRz7zUIH56B9Z'
 
-  const [data, setData] = useState({
-    title: '',
-    content: '',
-    category_id: '',
-    image: '',
-  })
+  // const [data, setData] = useState({
+  //   title: '',
+  //   content: '',
+  //   category_id: '',
+  //   image: '',
+  // })
 
   function handleSubmit(e) {
     e.preventDefault()
@@ -60,7 +60,7 @@ const BlogPostForm = () => {
             <div className="form-group">
               <h2>Plaats een blog bericht</h2>
               <div className="form-group">
-                <label for="inputBlogTitle">Berichtnaam</label>
+                <label htmlFor="inputBlogTitle">Berichtnaam</label>
                 <input
                   type="text"
                   className="form-control"
@@ -69,7 +69,7 @@ const BlogPostForm = () => {
                 />
               </div>
               <div className="form-group">
-                <label for="blogCategorieSelect1">Categorie</label>
+                <label htmlFor="blogCategorieSelect1">Categorie</label>
                 <select required className="form-control" id="category_id">
                   <option value="" disabled selected>
                     Geen categorie
@@ -81,7 +81,7 @@ const BlogPostForm = () => {
                 </select>
               </div>
               <div className="form-group">
-                <label for="exampleInputEmail1">Header afbeelding</label>
+                <label htmlFor="exampleInputEmail1">Header afbeelding</label>
                 {/* upload */}
                 <div className="input-group mb-3">
                   <div className="custom-file">
@@ -98,7 +98,7 @@ const BlogPostForm = () => {
                 </div>
               </div>
               <div className="form-group">
-                <label for="blogTextarea">Bericht</label>
+                <label htmlFor="blogTextarea">Bericht</label>
                 <textarea
                   rows="9"
                   className="form-control"

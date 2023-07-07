@@ -69,7 +69,7 @@ const BlogPosts = () => {
               )
             })}
           </div>
-          <div class="sb-blog-page-container">
+          <div className="sb-blog-page-container">
             <ReactPaginate
               breakLabel="..."
               nextLabel="Volgende pagina >"
