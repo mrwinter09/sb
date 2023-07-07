@@ -1,6 +1,8 @@
 /** @format */
-
-.container {
-  max-width: 1140px;
-  margin: auto;
+.blog-postpage .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  margin: 4rem auto;
 }

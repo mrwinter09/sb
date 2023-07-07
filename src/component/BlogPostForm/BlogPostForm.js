@@ -1,6 +1,7 @@
 /** @format */
 
 import React from 'react'
+
 import './BlogPostForm.css'
 import camIcon from '../../assets/camera_icon.svg'
 

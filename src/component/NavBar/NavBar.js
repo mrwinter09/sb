@@ -1,7 +1,6 @@
 /** @format */
 
 import React from 'react'
-import { FaCoins } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import './NavBar.css'
 import logo from '../../assets/logo.svg'

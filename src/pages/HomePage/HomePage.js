@@ -1,7 +1,8 @@
 /** @format */
 
 import React from 'react'
-import BlogPostForm from '../../component/BlogPost/BlogPostForm'
+import BlogPostForm from '../../component/BlogPostForm/BlogPostForm'
+import BlogPostCard from '../../component/BlogPostCard/BlogPostCard'
 import './Homepage.css'
 
 const HomePage = () => {
@@ -14,7 +15,9 @@ const HomePage = () => {
         </div>
 
         {/* Right Side */}
-        <div className="right">fam</div>
+        <div className="right">
+          <BlogPostCard />
+        </div>
       </div>
     </div>
   )
