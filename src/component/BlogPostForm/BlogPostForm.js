@@ -6,8 +6,7 @@ import './BlogPostForm.css'
 import camIcon from '../../assets/camera_icon.svg'
 
 const BlogPostForm = () => {
-  const url = 'https://frontend-case-api.sbdev.nl/api/posts'
-
+  // const urlPost = 'https://frontend-case-api.sbdev.nl/api/posts'
   const [data, setData] = useState({
     title: '',
     content: '',
@@ -15,16 +14,10 @@ const BlogPostForm = () => {
     image: '',
   })
 
-  function handle(e) {
-    const newData = { ...data }
-    newData[e.target.id] = e.target.value
-    setData(newData)
-    console.log(newData)
-  }
-
   function handleSubmit(e) {
     e.preventDefault()
     if (true) {
+      console.log('true')
       postBlog()
     }
   }
@@ -33,18 +26,16 @@ const BlogPostForm = () => {
     try {
       // eslint-disable-next-line
       const response = await axios.post(
-        url,
+        'https://frontend-case-api.sbdev.nl/api/posts',
         {
           headers: {
             'Content-Type': 'application/json',
             token: 'pj11daaQRz7zUIH56B9Z',
           },
-        },
-        {
-          title: data.title,
-          content: data.content,
-          category_id: data.category_id,
-          image: data.image,
+          title: 'data.title',
+          content: 'data.content',
+          category_id: 'data.category_id',
+          image: 'data.image',
         }
       )
       console.log(response)
@@ -53,11 +44,18 @@ const BlogPostForm = () => {
     }
   }
 
+  function handle(e) {
+    const newData = { ...data }
+    newData[e.target.id] = e.target.value
+    setData(newData)
+    console.log(newData)
+  }
+
   return (
     <>
       <div className="cms">
         <div className="blog-container">
-          <form onSubmit={(e) => handleSubmit(e)}>
+          <form onSubmit={handleSubmit}>
             <div class="form-group">
               <h2>Plaats een blog bericht</h2>
               <div class="form-group">
