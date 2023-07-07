@@ -6,15 +6,23 @@ import axios from 'axios'
 import './BlogPosts.css'
 
 const BlogPosts = () => {
-  const url = 'https://api.coinstats.app/public/v1/coins?skip=0&limit=100'
-  const [coins, setCoins] = useState([])
+  const url =
+    'https://frontend-case-api.sbdev.nl/api/posts?page=1&perPage=10&sortBy=title&sortDirection=asc&searchPhrase=test ber&categoryId=1&token=pj11daaQRz7zUIH56B9Z'
+  const catagories =
+    'https://frontend-case-api.sbdev.nl/api/posts?page=1&perPage=10&sortBy=title&sortDirection=asc&searchPhrase=test ber&categoryId=1&token=pj11daaQRz7zUIH56B9Z'
+  const [blogs, setBlogs] = useState([])
 
   useEffect(() => {
     axios
-      .get(url)
+      .get(url, {
+        headers: {
+          'Content-Type': 'application/json',
+          token: 'pj11daaQRz7zUIH56B9Z',
+        },
+      })
       .then((response) => {
-        setCoins(response.data.coins)
-        console.log(response.data.coins)
+        setBlogs(response.data.data)
+        console.log(response.data.data)
       })
       .catch((error) => {
         console.log(error)
@@ -30,36 +38,34 @@ const BlogPosts = () => {
   useEffect(() => {
     const endOffset = itemOffset + itemsPerPage
     console.log(`Loading items from ${itemOffset} to ${endOffset}`)
-    setCurrentItems(coins.slice(itemOffset, endOffset))
-    setPageCount(Math.ceil(coins.length / itemsPerPage))
-  }, [itemOffset, coins])
+    setCurrentItems(blogs.slice(itemOffset, endOffset))
+    setPageCount(Math.ceil(blogs.length / itemsPerPage))
+  }, [itemOffset, blogs])
 
   const handlePageClick = (event) => {
-    const newOffset = (event.selected * itemsPerPage) % coins.length
+    const newOffset = (event.selected * itemsPerPage) % blogs.length
     console.log(
       `User requested page number ${event.selected}, which is offset ${newOffset}`
     )
     setItemOffset(newOffset)
   }
 
+  console.log(currentItems)
+
   return (
     <>
       <div className="cms cms-blog-page">
         <div className="blog-page-container">
           <div className="blog-page-cards">
-            {currentItems.map((coins) => {
+            {currentItems.map((blogs) => {
               return (
-                <div key={coins.rank} className="blog-card">
+                <div key={blogs.rank} className="blog-card">
                   <div className="top">
-                    <img src={coins.icon} alt="" />
+                    <img src={blogs.img_url} alt="" />
                   </div>
                   <div className="blog-bottom">
-                    <h5 className="blog-page-title">Heading</h5>
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Phasellus quis nunc at mauris rhoncus maximus ut id
-                      tellus.fffddddddddddddddddddddddd
-                    </p>
+                    <h5 className="blog-page-title">{blogs.title}</h5>
+                    <p>{blogs.content}</p>
                   </div>
                 </div>
               )
