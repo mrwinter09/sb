@@ -7,9 +7,7 @@ import './BlogPosts.css'
 
 const BlogPosts = () => {
   const url =
-    'https://frontend-case-api.sbdev.nl/api/posts?page=1&perPage=10&sortBy=title&sortDirection=asc&searchPhrase=test ber&categoryId=1&token=pj11daaQRz7zUIH56B9Z'
-  const catagories =
-    'https://frontend-case-api.sbdev.nl/api/posts?page=1&perPage=10&sortBy=title&sortDirection=asc&searchPhrase=test ber&categoryId=1&token=pj11daaQRz7zUIH56B9Z'
+    'https://frontend-case-api.sbdev.nl/api/posts?page=1&perPage=100&sortBy=title&sortDirection=desc&searchPhrase=test ber&categoryId=3&token=pj11daaQRz7zUIH56B9Z'
   const [blogs, setBlogs] = useState([])
 
   useEffect(() => {

@@ -1,36 +1,91 @@
 /** @format */
 
-import React from 'react'
-
+import React, { useState } from 'react'
+import axios from 'axios'
 import './BlogPostForm.css'
 import camIcon from '../../assets/camera_icon.svg'
 
 const BlogPostForm = () => {
+  const url = 'https://frontend-case-api.sbdev.nl/api/posts'
+
+  const [data, setData] = useState({
+    title: '',
+    content: '',
+    category_id: '',
+    image: '',
+  })
+
+  function handle(e) {
+    const newData = { ...data }
+    newData[e.target.id] = e.target.value
+    setData(newData)
+    console.log(newData)
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault()
+    if (true) {
+      postBlog()
+    }
+  }
+
+  async function postBlog() {
+    try {
+      // eslint-disable-next-line
+      const response = await axios.post(
+        url,
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            token: 'pj11daaQRz7zUIH56B9Z',
+          },
+        },
+        {
+          title: data.title,
+          content: data.content,
+          category_id: data.category_id,
+          image: data.image,
+        }
+      )
+      console.log(response)
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
   return (
     <>
       <div className="cms">
         <div className="blog-container">
-          <form>
+          <form onSubmit={(e) => handleSubmit(e)}>
             <div class="form-group">
               <h2>Plaats een blog bericht</h2>
               <div class="form-group">
-                <label for="inputBlogBerichtnaam">Berichtnaam</label>
+                <label for="inputBlogTitle">Berichtnaam</label>
                 <input
                   type="text"
                   class="form-control"
-                  id="inputBlogBerichtnaam"
+                  id="title"
                   placeholder="Geen title"
+                  onChange={(e) => handle(e)}
+                  value={data.title}
                 />
               </div>
               <div class="form-group">
                 <label for="blogCategorieSelect1">Categorie</label>
-                <select required class="form-control" id="blogCategorieSelect1">
+                <select
+                  onChange={(e) => handle(e)}
+                  value={data.category_id}
+                  required
+                  class="form-control"
+                  id="category_id">
                   <option value="" disabled selected>
                     Geen categorie
                   </option>
-                  <option value="1">Gadgets</option>
-                  <option value="2">Smartphone</option>
-                  <option value="3">Laptop</option>
+                  <option value="1">Tech</option>
+                  <option value="2">Nieuws</option>
+                  <option value="3">Sport</option>
+                  <option value="4">Lokaal</option>
                 </select>
               </div>
               <div class="form-group">
@@ -41,13 +96,13 @@ const BlogPostForm = () => {
                     <input
                       type="file"
                       class="custom-file-input"
-                      id="exampleInputEmail1"
-                      aria-describedby="uploadImgBtn"
-                      accept=".jpg,.jpeg, .png,"
-                      title="foo"
+                      id="image"
+                      readonly
+                      onChange={(e) => handle(e)}
+                      value={data.image}
                     />
                     <div className="check">
-                      <img src={camIcon} />
+                      <img src={camIcon} alt="" />
                       <button className="sb-upload-button">Kies bestand</button>
                     </div>
                   </div>
@@ -58,8 +113,10 @@ const BlogPostForm = () => {
                 <textarea
                   rows="9"
                   class="form-control"
-                  id="blogTextarea"
-                  placeholder="Geen title"></textarea>
+                  id="content"
+                  placeholder="Geen title"
+                  onChange={(e) => handle(e)}
+                  value={data.content}></textarea>
               </div>
             </div>
             <div class="sb-container">
