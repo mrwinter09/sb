@@ -7,7 +7,8 @@ import './BlogPosts.css'
 
 const BlogPosts = () => {
   const [blogs, setBlogs] = useState([])
-  const url = 'https://frontend-case-api.sbdev.nl/api/posts'
+  const url =
+    'https://frontend-case-api.sbdev.nl/api/posts?page=1&perPage=100&sortBy=title&sortDirection=asc&searchPhrase=test ber&categoryId=1'
   const headers = {
     token: 'pj11daaQRz7zUIH56B9Z',
     'Content-Type': 'multipart/form-data',
@@ -44,6 +45,7 @@ const BlogPosts = () => {
       `User requested page number ${event.selected}, which is offset ${newOffset}`
     )
     setItemOffset(newOffset)
+    console.log(newOffset)
   }
 
   return (
