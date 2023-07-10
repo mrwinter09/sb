@@ -6,43 +6,43 @@ import axios from 'axios'
 import './BlogPostCard.css'
 
 const BlogPostCard = () => {
-  const url = 'https://api.coinstats.app/public/v1/coins?skip=0&limit=4'
-  const [coins, setCoins] = useState(null)
+  const [blogs, setBlogs] = useState([])
+  const url = 'https://frontend-case-api.sbdev.nl/api/posts'
+  const headers = {
+    token: 'pj11daaQRz7zUIH56B9Z',
+    'Content-Type': 'multipart/form-data',
+  }
 
   useEffect(() => {
-    axios
-      .get(url)
-      .then((response) => {
-        setCoins(response.data.coins)
-        console.log(response.data.coins)
-      })
-      .catch((error) => {
+    async function fetchBlog() {
+      try {
+        const response = await axios.get(url, { headers })
+        console.log(response.data.data)
+        setBlogs(response.data.data)
+      } catch (error) {
         console.log(error)
-      })
+      }
+    }
+    fetchBlog()
   }, [])
-
-  if (!coins) return null
-
-  console.log(coins)
 
   return (
     <>
       <div className="cms cms-blogpost">
         <div className="blog-container">
           <div className="blog-cards">
-            {coins.map((coins) => {
+            {blogs.map((blogs) => {
               return (
-                <div key={coins.rank} className="card">
+                <div key={blogs.rank} className="card">
                   <div className="top">
-                    <img src={coins.icon} alt="" />
+                    <img
+                      src={`https://frontend-case-api.sbdev.nl/storage/${blogs.img_url}`}
+                      alt=""
+                    />
                   </div>
                   <div className="bottom">
-                    <h5 className="blog-title">Heading</h5>
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Phasellus quis nunc at mauris rhoncus maximus ut id
-                      tellus.fffddddddddddddddddddddddd
-                    </p>
+                    <h5 className="blog-title">{blogs.title}</h5>
+                    <p>{blogs.content}</p>
                   </div>
                 </div>
               )

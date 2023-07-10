@@ -19,18 +19,6 @@ const BlogPostForm = () => {
     setData(newData)
   }
 
-  const handleFile = (event) => {
-    console.log(event.target.files[0])
-    setImage(event.target.files[0])
-  }
-
-  function handleSubmit(e) {
-    e.preventDefault()
-    if (true) {
-      postBlog()
-    }
-  }
-
   const url = 'https://frontend-case-api.sbdev.nl/api/posts'
 
   const headers = {
@@ -38,7 +26,8 @@ const BlogPostForm = () => {
     'Content-Type': 'multipart/form-data',
   }
 
-  async function postBlog() {
+  async function postBlog(e) {
+    e.preventDefault()
     const formData = new FormData()
     formData.append('image', image)
     formData.append('title', data.title)
@@ -57,7 +46,7 @@ const BlogPostForm = () => {
     <>
       <div className="cms">
         <div className="blog-container">
-          <form onSubmit={handleSubmit}>
+          <form>
             <div className="form-group">
               <h2>Plaats een blog bericht</h2>
               <div className="form-group">
@@ -96,7 +85,7 @@ const BlogPostForm = () => {
                       type="file"
                       className="custom-file-input"
                       id="image"
-                      onChange={(e) => handleFile(e)}
+                      onChange={(e) => setImage(e.target.files[0])}
                     />
                     {image.name}
                     <div className="check">

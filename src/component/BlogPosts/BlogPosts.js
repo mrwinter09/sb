@@ -34,7 +34,6 @@ const BlogPosts = () => {
 
   useEffect(() => {
     const endOffset = itemOffset + itemsPerPage
-    console.log(`Loading items from ${itemOffset} to ${endOffset}`)
     setCurrentItems(blogs.slice(itemOffset, endOffset))
     setPageCount(Math.ceil(blogs.length / itemsPerPage))
   }, [itemOffset, blogs])
@@ -46,8 +45,6 @@ const BlogPosts = () => {
     )
     setItemOffset(newOffset)
   }
-
-  console.log(currentItems)
 
   return (
     <>
