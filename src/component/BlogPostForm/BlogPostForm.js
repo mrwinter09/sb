@@ -1,42 +1,56 @@
 /** @format */
 
-// import React, { useState } from 'react'
+import React, { useState } from 'react'
 import axios from 'axios'
 import './BlogPostForm.css'
 import camIcon from '../../assets/camera_icon.svg'
 
 const BlogPostForm = () => {
-  const url = 'https://frontend-case-api.sbdev.nl/api/posts'
+  const [image, setImage] = useState('')
+  const [data, setData] = useState({
+    title: '',
+    content: '',
+    category_id: '',
+  })
 
-  const postData = {
-    title: 'Example Title',
-    content: 'Example Content',
-    category_id: 1,
-    image: 'images/g7TQoPqaPIXtN715RNsJ3NWYf38Dt1UyvSaZEvUC.jpg',
+  function handle(e) {
+    const newData = { ...data }
+    newData[e.target.id] = e.target.value
+    setData(newData)
   }
 
-  const headers = {
-    token: 'pj11daaQRz7zUIH56B9Z',
-    'Content-Type': 'application/json',
+  const handleFile = (event) => {
+    console.log(event.target.files[0])
+    setImage(event.target.files[0])
   }
 
   function handleSubmit(e) {
     e.preventDefault()
     if (true) {
-      console.log('true')
       postBlog()
     }
   }
 
+  const url = 'https://frontend-case-api.sbdev.nl/api/posts'
+
+  const headers = {
+    token: 'pj11daaQRz7zUIH56B9Z',
+    'Content-Type': 'multipart/form-data',
+  }
+
   async function postBlog() {
-    axios
-      .post(url, postData, { headers })
-      .then((response) => {
-        console.log('Response:', response.data)
-      })
-      .catch((error) => {
-        console.error('Error:', error.message)
-      })
+    const formData = new FormData()
+    formData.append('image', image)
+    formData.append('title', data.title)
+    formData.append('content', data.content)
+    formData.append('category_id', data.category_id)
+
+    try {
+      const response = await axios.post(url, formData, { headers })
+      console.log(response)
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   return (
@@ -53,11 +67,17 @@ const BlogPostForm = () => {
                   className="form-control"
                   id="title"
                   placeholder="Geen title"
+                  onChange={(e) => handle(e)}
+                  value={data.title}
                 />
               </div>
               <div className="form-group">
                 <label htmlFor="blogCategorieSelect1">Categorie</label>
-                <select required className="form-control" id="category_id">
+                <select
+                  onChange={(e) => handle(e)}
+                  value={data.category_id}
+                  className="form-control"
+                  id="category_id">
                   <option value="" disabled selected>
                     Geen categorie
                   </option>
@@ -76,7 +96,9 @@ const BlogPostForm = () => {
                       type="file"
                       className="custom-file-input"
                       id="image"
+                      onChange={(e) => handleFile(e)}
                     />
+                    {image.name}
                     <div className="check">
                       <img src={camIcon} alt="" />
                       <button className="sb-upload-button">Kies bestand</button>
@@ -90,7 +112,9 @@ const BlogPostForm = () => {
                   rows="9"
                   className="form-control"
                   id="content"
-                  placeholder="Geen title"></textarea>
+                  placeholder="Geen title"
+                  onChange={(e) => handle(e)}
+                  value={data.content}></textarea>
               </div>
             </div>
             <div className="sb-container">
