@@ -1,12 +1,15 @@
 /** @format */
 
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { slice } from 'lodash'
 import axios from 'axios'
 import './BlogPostCard.css'
 
 const BlogPostCard = () => {
   const [blogs, setBlogs] = useState([])
+  const [isCompleted, setIsCompleted] = useState(false)
+  const [index, setIndex] = useState(4)
+  const initialPosts = slice(blogs, 0, index)
   const url = 'https://frontend-case-api.sbdev.nl/api/posts'
   const headers = {
     token: 'pj11daaQRz7zUIH56B9Z',
@@ -26,12 +29,22 @@ const BlogPostCard = () => {
     fetchBlog()
   }, [])
 
+  const loadMore = () => {
+    setIndex(index + 4)
+    console.log(index)
+    if (index >= blogs.length) {
+      setIsCompleted(true)
+    } else {
+      setIsCompleted(false)
+    }
+  }
+
   return (
     <>
       <div className="cms cms-blogpost">
         <div className="blog-container">
           <div className="blog-cards">
-            {blogs.map((blogs) => {
+            {initialPosts.map((blogs) => {
               return (
                 <div key={blogs.rank} className="card">
                   <div className="top">
@@ -49,11 +62,28 @@ const BlogPostCard = () => {
             })}
           </div>
           <div className="sb-blog-container">
-            <Link to="/blogpage">
-              <button type="submit" className="btn btn-primary" id="sb-button">
+            {isCompleted ? (
+              <button
+                onClick={loadMore}
+                type="button"
+                className="btn btn-danger disabled">
+                That's It
+              </button>
+            ) : (
+              <button
+                onClick={loadMore}
+                type="button"
+                className="btn btn-danger">
                 Laad meer
               </button>
-            </Link>
+            )}
+            {/* <button
+              onClick={loadMore}
+              type="submit"
+              className="btn btn-primary"
+              id="sb-button">
+              Laad meer
+            </button> */}
           </div>
         </div>
       </div>
