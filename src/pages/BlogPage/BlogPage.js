@@ -1,7 +1,7 @@
 /** @format */
 
-import React from 'react'
 import './BlogPage.css'
+import React from 'react'
 import BlogPosts from '../../component/BlogPosts/BlogPosts'
 
 const BlogPage = () => {
