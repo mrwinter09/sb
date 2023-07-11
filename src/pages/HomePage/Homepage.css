@@ -2,7 +2,7 @@
 .blog-post .container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  margin: 4rem auto;
+  margin: auto;
   justify-content: center;
   align-items: center;
   padding: 1rem;
