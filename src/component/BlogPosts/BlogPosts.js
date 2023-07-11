@@ -5,10 +5,10 @@ import ReactPaginate from 'react-paginate'
 import axios from 'axios'
 
 const BlogPosts = () => {
-  const [currentItems, setCurrentItems] = useState([])
+  const [currentBlogPost, setCurrentBlogPost] = useState([])
   const [pageCount, setPageCount] = useState(0)
-  const [itemOffset, setItemOffset] = useState(0)
-  const itemsPerPage = 8
+  const [blogOffset, setBlogOffset] = useState(0)
+  const blogPostsPerPage = 8
 
   const [blogs, setBlogs] = useState([])
   const url =
@@ -32,17 +32,17 @@ const BlogPosts = () => {
   }, [])
 
   useEffect(() => {
-    const endOffset = itemOffset + itemsPerPage
-    setCurrentItems(blogs.slice(itemOffset, endOffset))
-    setPageCount(Math.ceil(blogs.length / itemsPerPage))
-  }, [itemOffset, blogs])
+    const endOffset = blogOffset + blogPostsPerPage
+    setCurrentBlogPost(blogs.slice(blogOffset, endOffset))
+    setPageCount(Math.ceil(blogs.length / blogPostsPerPage))
+  }, [blogOffset, blogs])
 
   const handlePageClick = (event) => {
-    const newOffset = (event.selected * itemsPerPage) % blogs.length
+    const newOffset = (event.selected * blogPostsPerPage) % blogs.length
     console.log(
       `User requested page number ${event.selected}, which is offset ${newOffset}`
     )
-    setItemOffset(newOffset)
+    setBlogOffset(newOffset)
     console.log(newOffset)
   }
 
@@ -51,7 +51,7 @@ const BlogPosts = () => {
       <div className="cms cms-blog-page">
         <div className="blog-page-container">
           <div className="blog-page-cards">
-            {currentItems.map((blogs) => {
+            {currentBlogPost.map((blogs) => {
               return (
                 <div key={blogs.rank} className="blog-card">
                   <div className="top">
