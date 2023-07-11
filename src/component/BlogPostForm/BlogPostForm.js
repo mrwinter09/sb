@@ -1,8 +1,7 @@
 /** @format */
-
+import './BlogPostForm.css'
 import React, { useState } from 'react'
 import axios from 'axios'
-import './BlogPostForm.css'
 import camIcon from '../../assets/camera_icon.svg'
 
 const BlogPostForm = () => {
@@ -13,17 +12,16 @@ const BlogPostForm = () => {
     category_id: '',
   })
 
+  const url = 'https://frontend-case-api.sbdev.nl/api/posts'
+  const headers = {
+    token: 'pj11daaQRz7zUIH56B9Z',
+    'Content-Type': 'multipart/form-data',
+  }
+
   function handle(e) {
     const newData = { ...data }
     newData[e.target.id] = e.target.value
     setData(newData)
-  }
-
-  const url = 'https://frontend-case-api.sbdev.nl/api/posts'
-
-  const headers = {
-    token: 'pj11daaQRz7zUIH56B9Z',
-    'Content-Type': 'multipart/form-data',
   }
 
   async function postBlog(e) {

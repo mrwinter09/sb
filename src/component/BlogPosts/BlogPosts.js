@@ -1,11 +1,15 @@
 /** @format */
-
+import './BlogPosts.css'
 import React, { useState, useEffect } from 'react'
 import ReactPaginate from 'react-paginate'
 import axios from 'axios'
-import './BlogPosts.css'
 
 const BlogPosts = () => {
+  const [currentItems, setCurrentItems] = useState([])
+  const [pageCount, setPageCount] = useState(0)
+  const [itemOffset, setItemOffset] = useState(0)
+  const itemsPerPage = 8
+
   const [blogs, setBlogs] = useState([])
   const url =
     'https://frontend-case-api.sbdev.nl/api/posts?page=1&perPage=100&sortBy=title&sortDirection=asc&searchPhrase=test ber&categoryId=1'
@@ -26,12 +30,6 @@ const BlogPosts = () => {
     }
     fetchBlog()
   }, [])
-
-  const [currentItems, setCurrentItems] = useState([])
-  const [pageCount, setPageCount] = useState(0)
-  const [itemOffset, setItemOffset] = useState(0)
-
-  const itemsPerPage = 8
 
   useEffect(() => {
     const endOffset = itemOffset + itemsPerPage

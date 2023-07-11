@@ -1,15 +1,15 @@
 /** @format */
-
+import './BlogPostCard.css'
 import React, { useState, useEffect } from 'react'
 import { slice } from 'lodash'
 import axios from 'axios'
-import './BlogPostCard.css'
 
 const BlogPostCard = () => {
   const [blogs, setBlogs] = useState([])
   const [isCompleted, setIsCompleted] = useState(false)
   const [index, setIndex] = useState(4)
   const initialPosts = slice(blogs, 0, index)
+
   const url = 'https://frontend-case-api.sbdev.nl/api/posts'
   const headers = {
     token: 'pj11daaQRz7zUIH56B9Z',

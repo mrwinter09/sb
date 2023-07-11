@@ -1,8 +1,7 @@
 /** @format */
-
+import './NavBar.css'
 import React from 'react'
 import { Link } from 'react-router-dom'
-import './NavBar.css'
 import logo from '../../assets/logo.svg'
 
 const NavBar = () => {
