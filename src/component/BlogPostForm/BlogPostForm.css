@@ -52,15 +52,6 @@ select {
   padding: 10px;
 }
 
-select:required:invalid {
-  color: gray;
-  font-style: italic;
-  font-size: small;
-  border-radius: 2px;
-  border: 0px solid #ccc;
-  background-color: rgb(208, 199, 199);
-}
-
 option[value=''][disabled] {
   display: none;
 }

@@ -37,6 +37,7 @@
   text-align: start;
   margin-bottom: 0rem;
   height: 90px;
+  overflow: hidden;
 }
 
 .cms .card .bottom .blog-title {

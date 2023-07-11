@@ -5,8 +5,8 @@ import axios from 'axios'
 import camIcon from '../../assets/camera_icon.svg'
 
 const BlogPostForm = () => {
-  const [image, setImage] = useState('')
-  const [data, setData] = useState({
+  const [blogImage, setBlogImage] = useState('')
+  const [blogPostData, setBlogPostData] = useState({
     title: '',
     content: '',
     category_id: '',
@@ -19,18 +19,18 @@ const BlogPostForm = () => {
   }
 
   function handle(e) {
-    const newData = { ...data }
+    const newData = { ...blogPostData }
     newData[e.target.id] = e.target.value
-    setData(newData)
+    setBlogPostData(newData)
   }
 
   async function postBlog(e) {
     e.preventDefault()
     const formData = new FormData()
-    formData.append('image', image)
-    formData.append('title', data.title)
-    formData.append('content', data.content)
-    formData.append('category_id', data.category_id)
+    formData.append('image', blogImage)
+    formData.append('title', blogPostData.title)
+    formData.append('content', blogPostData.content)
+    formData.append('category_id', blogPostData.category_id)
 
     try {
       const response = await axios.post(url, formData, { headers })
@@ -55,17 +55,17 @@ const BlogPostForm = () => {
                   id="title"
                   placeholder="Geen title"
                   onChange={(e) => handle(e)}
-                  value={data.title}
+                  value={blogPostData.title}
                 />
               </div>
               <div className="form-group">
                 <label htmlFor="blogCategorieSelect1">Categorie</label>
                 <select
                   onChange={(e) => handle(e)}
-                  value={data.category_id}
+                  value={blogPostData.category_id}
                   className="form-control"
                   id="category_id">
-                  <option value="" disabled selected>
+                  <option className="form-control-test" value="" disabled>
                     Geen categorie
                   </option>
                   <option value="1">Tech</option>
@@ -83,9 +83,9 @@ const BlogPostForm = () => {
                       type="file"
                       className="custom-file-input"
                       id="image"
-                      onChange={(e) => setImage(e.target.files[0])}
+                      onChange={(e) => setBlogImage(e.target.files[0])}
                     />
-                    {image.name}
+                    {blogImage.name}
                     <div className="check">
                       <img src={camIcon} alt="" />
                       <button className="sb-upload-button">Kies bestand</button>
@@ -101,7 +101,7 @@ const BlogPostForm = () => {
                   id="content"
                   placeholder="Geen title"
                   onChange={(e) => handle(e)}
-                  value={data.content}></textarea>
+                  value={blogPostData.content}></textarea>
               </div>
             </div>
             <div className="sb-container">

@@ -19,7 +19,7 @@ const BlogPosts = () => {
   }
 
   useEffect(() => {
-    async function fetchBlog() {
+    async function fetchBlogData() {
       try {
         const response = await axios.get(url, { headers })
         console.log(response)
@@ -28,7 +28,7 @@ const BlogPosts = () => {
         console.log(error)
       }
     }
-    fetchBlog()
+    fetchBlogData()
   }, [])
 
   useEffect(() => {

@@ -20,7 +20,6 @@ const BlogPostCard = () => {
     async function fetchBlog() {
       try {
         const response = await axios.get(url, { headers })
-        console.log(response.data.data)
         setBlogs(response.data.data)
       } catch (error) {
         console.log(error)
@@ -31,7 +30,6 @@ const BlogPostCard = () => {
 
   const loadMore = () => {
     setIndex(index + 4)
-    console.log(index)
     if (index >= blogs.length) {
       setIsCompleted(true)
     } else {
@@ -46,7 +44,7 @@ const BlogPostCard = () => {
           <div className="blog-cards">
             {initialPosts.map((blogs) => {
               return (
-                <div key={blogs.rank} className="card">
+                <div key={blogs.id} className="card">
                   <div className="top">
                     <img
                       src={`https://frontend-case-api.sbdev.nl/storage/${blogs.img_url}`}
