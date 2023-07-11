@@ -2,9 +2,11 @@
 import './BlogPostForm.css'
 import React, { useState } from 'react'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 import camIcon from '../../assets/camera_icon.svg'
 
 const BlogPostForm = () => {
+  const navigate = useNavigate()
   const [blogImage, setBlogImage] = useState('')
   const [blogPostData, setBlogPostData] = useState({
     title: '',
@@ -44,7 +46,7 @@ const BlogPostForm = () => {
     <>
       <div className="cms">
         <div className="blog-container">
-          <form>
+          <form onSubmit={postBlog}>
             <div className="form-group">
               <h2>Plaats een blog bericht</h2>
               <div className="form-group">
@@ -105,11 +107,7 @@ const BlogPostForm = () => {
               </div>
             </div>
             <div className="sb-container">
-              <button
-                onClick={postBlog}
-                type="submit"
-                className="btn btn-primary"
-                id="sb-button">
+              <button type="submit" className="btn btn-primary" id="sb-button">
                 Bericht aanmaken
               </button>
             </div>
