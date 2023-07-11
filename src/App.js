@@ -1,12 +1,9 @@
 /** @format */
-
 import { Routes, Route } from 'react-router-dom'
-import 'bootstrap/dist/css/bootstrap.min.css'
 import HomePage from './pages/HomePage/HomePage'
 import BlogPage from './pages/BlogPage/BlogPage'
-
-import './App.css'
 import NavBar from './component/NavBar/NavBar'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 function App() {
   return (
