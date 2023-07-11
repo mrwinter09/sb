@@ -14,7 +14,7 @@ const BlogPosts = () => {
   const url =
     'https://frontend-case-api.sbdev.nl/api/posts?page=1&perPage=100&sortBy=title&sortDirection=asc&searchPhrase=test ber&categoryId=1'
   const headers = {
-    token: 'pj11daaQRz7zUIH56B9Z',
+    token: `${process.env.REACT_APP_KEY_API}`,
     'Content-Type': 'multipart/form-data',
   }
 
@@ -29,6 +29,7 @@ const BlogPosts = () => {
       }
     }
     fetchBlogData()
+    // eslint-disable-next-line
   }, [])
 
   useEffect(() => {

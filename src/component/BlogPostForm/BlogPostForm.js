@@ -2,11 +2,9 @@
 import './BlogPostForm.css'
 import React, { useState } from 'react'
 import axios from 'axios'
-import { useNavigate } from 'react-router-dom'
 import camIcon from '../../assets/camera_icon.svg'
 
 const BlogPostForm = () => {
-  const navigate = useNavigate()
   const [blogImage, setBlogImage] = useState('')
   const [blogPostData, setBlogPostData] = useState({
     title: '',
@@ -16,7 +14,7 @@ const BlogPostForm = () => {
 
   const url = 'https://frontend-case-api.sbdev.nl/api/posts'
   const headers = {
-    token: 'pj11daaQRz7zUIH56B9Z',
+    token: `${process.env.REACT_APP_KEY_API}`,
     'Content-Type': 'multipart/form-data',
   }
 
