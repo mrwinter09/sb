@@ -52,7 +52,7 @@ const BlogPostCard = () => {
                     />
                   </div>
                   <div className="bottom">
-                    <h5 className="blog-title">{blogs.title}</h5>
+                    <h4 className="blog-title">{blogs.title}</h4>
                     <p>{blogs.content}</p>
                   </div>
                 </div>
@@ -64,14 +64,16 @@ const BlogPostCard = () => {
               <button
                 onClick={loadMore}
                 type="button"
-                className="btn btn-danger disabled">
+                className="btn btn-primary disabled"
+                id="sb-button">
                 That's It
               </button>
             ) : (
               <button
                 onClick={loadMore}
                 type="button"
-                className="btn btn-danger">
+                className="btn btn-primary"
+                id="sb-button">
                 Laad meer
               </button>
             )}

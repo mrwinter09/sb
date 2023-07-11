@@ -4,15 +4,30 @@ label {
 }
 
 .cms {
-  background-color: aliceblue;
+  background-color: #fbfbfb;
   border-radius: 4px;
   padding: 20px;
+  height: auto;
+}
+
+.cms .blog-container {
+  height: 760px;
+}
+
+.cms .blog-container .sb-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 50px;
+}
+.cms .blog-container label {
+  margin-top: 15px;
 }
 
 .cms .blog-container input,
 textarea,
 select {
-  margin-bottom: 15px;
+  margin: 10px 0px 15px 0px;
 }
 
 .cms .blog-container input {
@@ -20,7 +35,7 @@ select {
   padding: 10px;
   border-radius: 2px;
   border: 0px solid #ccc;
-  background-color: rgb(208, 199, 199);
+  background-color: #f2f2f2;
 }
 .cms .blog-container input::placeholder {
   color: rgb(137, 137, 137);
@@ -35,7 +50,7 @@ select {
 }
 
 .form-control {
-  background-color: rgb(208, 199, 199);
+  background-color: #f2f2f2;
   border-radius: 2px;
 }
 
@@ -66,7 +81,7 @@ option[value=''][disabled] {
   align-items: center;
   width: 190px;
   height: 48px;
-  background-color: rgb(208, 199, 199);
+  background-color: #f2f2f2;
 }
 
 button.sb-upload-button {

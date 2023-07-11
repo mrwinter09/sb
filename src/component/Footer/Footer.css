@@ -1,0 +1,13 @@
+/** @format */
+
+.footer {
+  background-color: black;
+  margin: 0 140px;
+  display: flex;
+  justify-content: center;
+  padding: 0.5rem;
+}
+
+.footer-container {
+  color: white;
+}

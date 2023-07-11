@@ -6,7 +6,16 @@
   justify-content: center;
   align-items: center;
   padding: 1rem;
+  max-width: 1400px;
+  height: 840px;
 }
 .blog-post .container .left {
   margin: 0 20px;
+  height: 800px;
+  width: 550px;
+}
+.blog-post .container .right {
+  margin: 0 20px;
+  height: 800px;
+  width: 740px;
 }
