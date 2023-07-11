@@ -12,6 +12,7 @@
   flex-wrap: wrap;
   justify-content: space-evenly;
   margin-bottom: 130px;
+  height: 520px;
 }
 
 .cms .blog-page-cards .blog-card {
@@ -19,13 +20,10 @@
   flex-direction: column;
   margin: 0.4rem;
   width: 299px;
-  height: 215px;
+  height: 245px;
   border: 1px solid #d3d3d3;
   box-shadow: rgb(0 0 0 / 6%) 0px 8px 24px;
   text-align: center;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
 }
 
 .cms .blog-card .top {
