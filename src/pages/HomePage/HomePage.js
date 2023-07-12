@@ -7,16 +7,16 @@ import BlogPostCard from '../../component/BlogPostCard/BlogPostCard'
 
 const HomePage = () => {
   return (
-    <div className="blog-post">
+    <main className="blog-post">
       <div className="container">
-        <div className="left">
+        <aside className="left">
           <BlogPostForm />
-        </div>
-        <div className="right">
+        </aside>
+        <article className="right">
           <BlogPostCard />
-        </div>
+        </article>
       </div>
-    </div>
+    </main>
   )
 }
 

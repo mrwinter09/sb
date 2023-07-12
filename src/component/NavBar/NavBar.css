@@ -31,3 +31,8 @@
   background-position: bottom;
   height: 270px;
 }
+
+.nav-link--active {
+  color: #6900ff;
+  border-bottom: 2px solid #6900ff;
+}

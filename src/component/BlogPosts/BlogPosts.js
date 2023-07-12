@@ -21,7 +21,6 @@ const BlogPosts = () => {
     async function fetchBlogData() {
       try {
         const response = await axios.get(url, { headers })
-        console.log(response)
         setBlogs(response.data.data)
       } catch (error) {
         console.log(error)
@@ -50,10 +49,12 @@ const BlogPosts = () => {
     <>
       <div className="cms cms-blog-page">
         <div className="blog-page-container">
+          <h2 className="visually-hidden">Blog Posts</h2>
           <div className="blog-page-cards">
             {currentBlogPost.map((blogs) => {
+              console.log(blogs)
               return (
-                <div key={blogs.rank} className="blog-card">
+                <div key={blogs.id} className="blog-card">
                   <div className="top">
                     <img
                       src={`https://frontend-case-api.sbdev.nl/storage/${blogs.img_url}`}

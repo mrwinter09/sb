@@ -42,6 +42,7 @@ const BlogPostCard = () => {
     <>
       <div className="cms cms-blogpost">
         <div className="blog-container">
+          <h2 className="visually-hidden">Blog Posts</h2>
           <div className="blog-cards">
             {initialPosts.map((blogs) => {
               return (
@@ -53,7 +54,7 @@ const BlogPostCard = () => {
                     />
                   </div>
                   <div className="bottom">
-                    <h4 className="blog-title">{blogs.title}</h4>
+                    <h3 className="blog-title">{blogs.title}</h3>
                     <p>{blogs.content}</p>
                   </div>
                 </div>
@@ -78,13 +79,6 @@ const BlogPostCard = () => {
                 Laad meer
               </button>
             )}
-            {/* <button
-              onClick={loadMore}
-              type="submit"
-              className="btn btn-primary"
-              id="sb-button">
-              Laad meer
-            </button> */}
           </div>
         </div>
       </div>

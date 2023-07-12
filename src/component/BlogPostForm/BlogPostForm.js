@@ -25,6 +25,7 @@ const BlogPostForm = () => {
   }
 
   async function postBlog(e) {
+    console.log(e)
     e.preventDefault()
     const formData = new FormData()
     formData.append('image', blogImage)
@@ -33,8 +34,13 @@ const BlogPostForm = () => {
     formData.append('category_id', blogPostData.category_id)
 
     try {
-      const response = await axios.post(url, formData, { headers })
-      console.log(response)
+      await axios.post(url, formData, { headers })
+      setBlogPostData({
+        title: '',
+        content: '',
+        category_id: '',
+      })
+      setBlogImage('')
     } catch (error) {
       console.log(error)
     }
