@@ -26,7 +26,7 @@
 .background {
   background-image: url('../../assets/background.png');
   background-repeat: no-repeat;
-  background-size: 90%;
+  background-size: cover;
   background-position: bottom;
   height: 270px;
 }

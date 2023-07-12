@@ -17,3 +17,13 @@
   min-height: 800px;
   width: 740px;
 }
+
+@media screen and (max-width: 1330px) {
+  .blog-post .container {
+    grid-template-columns: 1fr;
+  }
+
+  .blog-post .container .left {
+    width: auto;
+  }
+}

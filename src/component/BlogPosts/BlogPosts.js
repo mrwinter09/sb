@@ -69,22 +69,22 @@ const BlogPosts = () => {
               )
             })}
           </div>
-          <div className="sb-blog-page-container">
-            <ReactPaginate
-              breakLabel="..."
-              nextLabel="Volgende pagina >"
-              onPageChange={handlePageClick}
-              pageRangeDisplayed={5}
-              pageCount={pageCount}
-              previousLabel="< previous"
-              renderOnZeroPageCount={null}
-              containerClassName="pagination"
-              pageLinkClassName="page-num"
-              previousLinkClassName="page-num"
-              nextLinkClassName="page-num"
-              activeClassName="active"
-            />
-          </div>
+        </div>
+        <div className="sb-blog-page-container">
+          <ReactPaginate
+            breakLabel="..."
+            nextLabel="Volgende pagina >"
+            onPageChange={handlePageClick}
+            pageRangeDisplayed={5}
+            pageCount={pageCount}
+            previousLabel="< previous"
+            renderOnZeroPageCount={null}
+            containerClassName="pagination"
+            pageLinkClassName="page-num"
+            previousLinkClassName="page-num"
+            nextLinkClassName="page-num"
+            activeClassName="active"
+          />
         </div>
       </div>
     </>
