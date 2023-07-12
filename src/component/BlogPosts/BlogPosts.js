@@ -38,11 +38,7 @@ const BlogPosts = () => {
 
   const handlePageClick = (event) => {
     const newOffset = (event.selected * blogPostsPerPage) % blogs.length
-    console.log(
-      `User requested page number ${event.selected}, which is offset ${newOffset}`
-    )
     setBlogOffset(newOffset)
-    console.log(newOffset)
   }
 
   return (
@@ -52,7 +48,6 @@ const BlogPosts = () => {
           <h2 className="visually-hidden">Blog Posts</h2>
           <div className="blog-page-cards">
             {currentBlogPost.map((blogs) => {
-              console.log(blogs)
               return (
                 <div key={blogs.id} className="blog-card">
                   <div className="top">

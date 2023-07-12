@@ -25,7 +25,6 @@ const BlogPostForm = () => {
   }
 
   async function postBlog(e) {
-    console.log(e)
     e.preventDefault()
     const formData = new FormData()
     formData.append('image', blogImage)

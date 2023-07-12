@@ -66,28 +66,6 @@
   margin-top: 115px;
 }
 
-/* @media screen and (max-width: 940px) {
-  .cms .container {
-    grid-template-columns: 1fr;
-  }
-
-  .cms .left .btn {
-    align-self: center;
-  }
-}
-
-@media screen and (max-width: 478px) {
-  .cms .container .right .blog-card {
-    width: 100%;
-  }
-
-  .cms .right img {
-    width: auto;
-    margin: auto;
-    padding: 0.2rem 0;
-  }
-} */
-
 .pagination {
   list-style: none;
   font-size: 1.2rem;
