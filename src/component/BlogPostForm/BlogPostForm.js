@@ -81,7 +81,6 @@ const BlogPostForm = () => {
               </div>
               <div className="form-group">
                 <label htmlFor="exampleInputEmail1">Header afbeelding</label>
-                {/* upload */}
                 <div className="input-group mb-3">
                   <div className="custom-file">
                     <input
