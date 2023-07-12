@@ -16,7 +16,6 @@
 
 .nav-link {
   font-size: 1.5rem;
-  color: #6900ff;
   text-decoration: none;
   margin: 0 1rem;
   display: flex;
@@ -27,12 +26,11 @@
 .background {
   background-image: url('../../assets/background.png');
   background-repeat: no-repeat;
-  background-size: 86%;
+  background-size: 90%;
   background-position: bottom;
   height: 270px;
 }
 
 .nav-link--active {
-  color: #6900ff;
-  border-bottom: 2px solid #6900ff;
+  border-bottom: 2px solid #f17232;
 }
